@@ -47,14 +47,10 @@ with open("input.txt") as f:
             buses.append(bus)
 
 current_time = buses[0]
-last_time = 0 # Just for printing
     
 time_step = buses[0]
 while True:
 
-    if current_time > last_time * 2:
-        print("trying time: {}".format(current_time))
-        last_time = current_time
     valid = True
     
     for bus_offset in range(1, len(buses)):
@@ -79,7 +75,7 @@ while True:
                         continue
                     time_step = lcm(time_step, buses[bus_index])
 
-                print("new time_step: {}".format(time_step))
+                #print("new time_step: {}".format(time_step))
             valid = False
 
             break
