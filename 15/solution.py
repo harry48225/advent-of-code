@@ -61,14 +61,6 @@ number_log = {}
 most_recent_number = -1
 turn_number = 1
 
-def say_number(number, turn_number):
-
-    number = str(number)
-
-    if number not in number_log.keys():
-        number_log[number] = {'times_spoken': 0, 'last_spoken': -1, 'second_last_spoken': -1}
-
-    number_log[number] = {'times_spoken': number_log[number]['times_spoken'] + 1, 'last_spoken': turn_number, 'second_last_spoken': number_log[number]['last_spoken']}
 
 for num in starting_numbers:
 
