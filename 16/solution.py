@@ -116,7 +116,7 @@ print(field_valid_indices)
 
 field_indices = {}
 
-# Yep its a mess... but it works ... as long as there is no further ambiguity about where a field can go
+# Yep its a mess... but it works ...
 while len(field_indices.keys()) != len(rules.keys()):
 
     for field_index in range((len(field_valid_indices.keys()))):
