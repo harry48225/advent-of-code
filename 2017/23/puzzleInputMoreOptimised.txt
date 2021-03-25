@@ -1,0 +1,14 @@
+set a 1
+set b 106700
+set c 106700
+sub c -17000
+set f 1
+set f b
+mod f 2
+sub h -1
+set g b
+sub g c
+jnz g 2 // g needs to be zero here for the program to end; b-c == 0
+jnz 1 3
+sub b -17
+jnz 1 -9

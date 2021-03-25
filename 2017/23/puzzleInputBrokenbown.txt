@@ -1,0 +1,35 @@
+a : 1
+b : 106 700
+c : 106 700
+
+sub c -17000
+set f 1
+	set d 2
+	set e 2
+	
+		set g d
+			mul g e
+			sub g b
+			jnz g 2
+			set f 0 // If g==b: f=0; If (2*e)-b == 0; f=0
+			sub e -1
+			set g e
+			sub g b
+		jnz g -8 // If e==b: break;
+		
+		sub d -1
+		set g d
+		sub g b
+	
+	jnz g -13 // If g==0: break; If d == b: break;
+	
+	jnz f 2 // If b is prime jump
+	sub h -1 // Increment h if b isn't prime
+	set g b
+	sub g c
+	jnz g 2 // g needs to be zero here for the program to end; b-c == 0
+	jnz 1 3
+	sub b -17
+jnz 1 -23
+
+number of non primes between 106 700 and 123 700 going up in steps of 17
