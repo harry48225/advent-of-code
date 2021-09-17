@@ -42,6 +42,34 @@ export const shortestPath = (instructions: Array<Instruction>): number => {
     return Math.abs(currentPosition.x) + Math.abs(currentPosition.y);
 }
 
+export const partTwo = (instructions: Array<Instruction>): number => {
+    const currentPosition: Vector = {x: 0, y: 0};
+    let currentDirection: Vector  = {x: 0, y: 1};
+    const history = [`${currentPosition.x},${currentPosition.y}`];
+
+
+    for (const instruction of instructions) {
+        switch (instruction.direction) {
+            case InstructionDirections.LEFT:
+                currentDirection = turnLeft(currentDirection);
+                break;
+            case InstructionDirections.RIGHT:
+                currentDirection = turnRight(currentDirection);
+                break;
+        }
+
+        for (let _ = 0; _ < instruction.amount; _ ++) {
+            currentPosition.x += currentDirection.x;
+            currentPosition.y += currentDirection.y;
+            if (history.includes(`${currentPosition.x},${currentPosition.y}`)) {
+                return Math.abs(currentPosition.x) + Math.abs(currentPosition.y)
+            }
+            history.push(`${currentPosition.x},${currentPosition.y}`);
+        }
+    }
+    return -1;
+}
+
 export const parseInput = (puzzleInput: string): Array<Instruction> => {
     let splitInput = puzzleInput.replace(/\s+/g, "").split(",");
 
@@ -57,7 +85,7 @@ export const parseInput = (puzzleInput: string): Array<Instruction> => {
         }
 
         return {
-            direction: direction,
+            direction,
             amount: parseInt(instruction.slice(1))
         }
     }
