@@ -4,12 +4,23 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "name": "Python: Current File",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal"
-        }
+    {
+        "name": "Python: Current File",
+        "type": "python",
+        "request": "launch",
+        "program": "${file}",
+        "console": "integratedTerminal"
+    },
+    {
+        "name": "2016 - Debug tests watch mode",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "yarn",
+        "args": ["test", "--runInBand", "--no-cache", "--watch"],
+        "cwd": "${workspaceRoot}/2016",
+        "protocol": "inspector",
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen"
+    }
     ]
 } 
