@@ -99,3 +99,10 @@ describe("part one", () => {
     expect(findMinimumNumberOfSteps(parseInput(puzzleInput))).toEqual(33);
   });
 });
+
+describe("part two", () => {
+  it("puzzle input", async () => {
+    const puzzleInput = (await readFile(resolve(__dirname, "./inputPartTwo.txt"))).toString();
+    expect(findMinimumNumberOfSteps(parseInput(puzzleInput))).toEqual(57);
+  });
+})
