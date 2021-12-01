@@ -21,6 +21,17 @@
         "protocol": "inspector",
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen"
+    },
+    {
+        "name": "2021 - Debug tests watch mode",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "yarn",
+        "args": ["test", "--runInBand", "--no-cache", "--watch"],
+        "cwd": "${workspaceRoot}/2021",
+        "protocol": "inspector",
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen"
     }
     ]
 } 
