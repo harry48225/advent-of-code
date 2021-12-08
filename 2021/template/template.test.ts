@@ -2,9 +2,10 @@ import { resolve } from 'path';
 import { readFile } from 'fs/promises';
 import { partOne, partTwo } from './template';
 
+const testInput = "";
+
 describe("part one", () => {
   it("test input", () => {
-    const testInput = "";
     expect(partOne(testInput)).toEqual(-1);
   });
 
@@ -16,7 +17,6 @@ describe("part one", () => {
 
 describe("part two", () => {
   it("test input", () => {
-    const testInput = "";
     expect(partTwo(testInput)).toEqual(-1);
   });
 
