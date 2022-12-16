@@ -49,14 +49,27 @@ println(total)
 #5832528 correct
 
 bound = 4000000
-x_range = 0:bound
-y_range = 0:bound
+# x_range = 0:bound
+# y_range = 0:bound
 
-for row in y_range
-  println("$(row/bound)")
-  maybe = setdiff(x_range, findNoBeacons(row))
-  if length(maybe) > 0
-    println((4000000*maybe[1])+row)
-    break
-  end
+# must be 1 away from the circumfrence of at least one sensor
+for sensor in sensors
+  # println(sensor)
+  radius = sensor.radius + 1
+  for dx in -radius:radius
+    dy = radius - dx
+    for p in [sensor.coords + [dx, dy], sensor.coords + [dx, -dy]]
+      valid = true
+      for ss in sensors
+        if norm(p - ss.coords, 1) <= ss.radius || p[1] > bound || p[2] > bound || p[1] < 0 || p[2] < 0
+          valid = false
+          break
+        end
+      end
+      if valid
+        println("$(p[1]*4000000 + p[2])")
+        exit()
+      end
+    end
+  end  
 end
